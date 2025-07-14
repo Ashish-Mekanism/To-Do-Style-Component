@@ -40,11 +40,13 @@ export const CategoryList = styled.ul`
 `;
 
 export const CategoryItem = styled.li`
+  font-size: ${(props) => (props.category === "All Tasks" ? "30px" : "")};
+
+  font-weight: ${(props) => (props.category === "All Tasks" ? "700" : "400")};
+
   padding: 12px 16px;
-  /* border-bottom: 1px solid #eee; */
   cursor: pointer;
   font-family: "SF Pro";
-  font-weight: 400;
   color: ${(props) => (props.color === "gray" ? "#ABABAB" : "black")};
 
   &:hover {
@@ -90,17 +92,18 @@ export const TodolistItem = styled.ul`
 `;
 
 export const Checkbox = styled.button`
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
   margin-right: 12px;
-  border-radius: 10px;
-  border: 2px solid #f87171;
+  border-radius: 15px;
+  border: 3px solid #f87171;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 10px;
   cursor: pointer;
   background-color: white;
+  overflow: visible;
 `;
 
 export const TodoName = styled.li`
@@ -121,8 +124,26 @@ export const TodoCategoryTitle = styled.div`
   font-weight: 300;
   color: white;
   /* margin-bottom: 20px; */
-  background-color: #27ae60;
-  border-radius: 10px;
-  padding-left: 16px;
-  width: 68px;
+  background-color: ${(props) =>
+    props.category === "Work"
+      ? "#2F80ED"
+      : props.category === "Favorites"
+      ? "#cbde7f"
+      : props.category === "Grocery"
+      ? "#93ae27"
+      : props.category === "Study"
+      ? "#F2994A"
+      : props.category === "Sports"
+      ? "#9B51E0"
+      : "Black"};
+  border-radius: 40px;
+  padding-top: 6px;
+  /* padding-left: 34px; */
+  text-align: center;
+  width: 101px;
+  height: 33px;
+`;
+
+export const TodoCategorydiv = styled.div`
+  display: flex;
 `;
